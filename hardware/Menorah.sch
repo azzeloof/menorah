@@ -22,96 +22,16 @@ Wire Wire Line
 Wire Wire Line
 	6700 1950 6700 1350
 $Comp
-L Device:Battery_Cell BT1
-U 1 1 5DE7F2D8
-P 1650 1700
-F 0 "BT1" H 1768 1796 50  0000 L CNN
-F 1 "Battery_Cell" H 1768 1705 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3000_1x12mm" V 1650 1760 50  0001 C CNN
-F 3 "~" V 1650 1760 50  0001 C CNN
-	1    1650 1700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Battery_Cell BT4
-U 1 1 5DE7FBBF
-P 1650 2300
-F 0 "BT4" H 1768 2396 50  0000 L CNN
-F 1 "Battery_Cell" H 1768 2305 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3000_1x12mm" V 1650 2360 50  0001 C CNN
-F 3 "~" V 1650 2360 50  0001 C CNN
-	1    1650 2300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2300 1500 2300 1400
-Wire Wire Line
-	2300 1400 1650 1400
-Wire Wire Line
-	1650 1400 1650 1500
-Wire Wire Line
-	2300 1800 2300 1900
-Wire Wire Line
-	2300 1900 1650 1900
-Wire Wire Line
-	1650 1900 1650 1800
-$Comp
-L Device:Battery_Cell BT2
-U 1 1 5DE841C4
-P 2300 1700
-F 0 "BT2" H 2418 1796 50  0000 L CNN
-F 1 "Battery_Cell" H 2418 1705 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3000_1x12mm" V 2300 1760 50  0001 C CNN
-F 3 "~" V 2300 1760 50  0001 C CNN
-	1    2300 1700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Battery_Cell BT5
-U 1 1 5DE841CA
-P 2300 2300
-F 0 "BT5" H 2418 2396 50  0000 L CNN
-F 1 "Battery_Cell" H 2418 2305 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3000_1x12mm" V 2300 2360 50  0001 C CNN
-F 3 "~" V 2300 2360 50  0001 C CNN
-	1    2300 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Battery_Cell BT3
-U 1 1 5DE865A6
-P 2950 1700
-F 0 "BT3" H 3068 1796 50  0000 L CNN
-F 1 "Battery_Cell" H 3068 1705 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3000_1x12mm" V 2950 1760 50  0001 C CNN
-F 3 "~" V 2950 1760 50  0001 C CNN
-	1    2950 1700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Battery_Cell BT6
-U 1 1 5DE865AC
+L power:GND #PWR01
+U 1 1 5DE8FC9F
 P 2950 2300
-F 0 "BT6" H 3068 2396 50  0000 L CNN
-F 1 "Battery_Cell" H 3068 2305 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3000_1x12mm" V 2950 2360 50  0001 C CNN
-F 3 "~" V 2950 2360 50  0001 C CNN
+F 0 "#PWR01" H 2950 2050 50  0001 C CNN
+F 1 "GND" H 2955 2127 50  0000 C CNN
+F 2 "" H 2950 2300 50  0001 C CNN
+F 3 "" H 2950 2300 50  0001 C CNN
 	1    2950 2300
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR01
-U 1 1 5DE8FC9F
-P 1650 2500
-F 0 "#PWR01" H 1650 2250 50  0001 C CNN
-F 1 "GND" H 1655 2327 50  0000 C CNN
-F 2 "" H 1650 2500 50  0001 C CNN
-F 3 "" H 1650 2500 50  0001 C CNN
-	1    1650 2500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4100 1300 4250 1300
 Wire Wire Line
 	4650 1300 4950 1300
 $Comp
@@ -475,46 +395,6 @@ Wire Wire Line
 Connection ~ 5650 1300
 Wire Wire Line
 	5650 1300 5500 1300
-Wire Wire Line
-	2300 1400 2950 1400
-Wire Wire Line
-	2950 1400 2950 1500
-Connection ~ 2300 1400
-Wire Wire Line
-	2300 1900 2950 1900
-Wire Wire Line
-	2950 1900 2950 1800
-Connection ~ 2300 1900
-Wire Wire Line
-	1650 2100 1650 2000
-Wire Wire Line
-	1650 2000 2300 2000
-Wire Wire Line
-	2300 2000 2300 2100
-Wire Wire Line
-	2300 2000 2950 2000
-Wire Wire Line
-	2950 2000 2950 2100
-Connection ~ 2300 2000
-Wire Wire Line
-	1650 2400 1650 2500
-Wire Wire Line
-	1650 2500 2300 2500
-Wire Wire Line
-	2300 2500 2300 2400
-Wire Wire Line
-	2300 2500 2950 2500
-Wire Wire Line
-	2950 2500 2950 2400
-Connection ~ 2300 2500
-Wire Wire Line
-	1650 1900 1650 2000
-Connection ~ 1650 1900
-Connection ~ 1650 2000
-Connection ~ 1650 2500
-Wire Wire Line
-	2950 1400 3700 1400
-Connection ~ 2950 1400
 Connection ~ 8800 2350
 Wire Wire Line
 	8450 1850 8450 2350
@@ -546,4 +426,23 @@ Connection ~ 7750 1350
 Connection ~ 8450 1350
 Wire Wire Line
 	4950 2750 4950 3150
+$Comp
+L Device:Battery BT1
+U 1 1 5FB7AD5A
+P 2950 1850
+F 0 "BT1" H 3058 1896 50  0000 L CNN
+F 1 "Battery" H 3058 1805 50  0000 L CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical_SMD_Pin1Left" V 2950 1910 50  0001 C CNN
+F 3 "~" V 2950 1910 50  0001 C CNN
+	1    2950 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 1650 2950 1300
+Wire Wire Line
+	2950 1300 4250 1300
+Wire Wire Line
+	2950 2050 2950 2300
+NoConn ~ 5550 2350
+NoConn ~ 6000 3850
 $EndSCHEMATC
