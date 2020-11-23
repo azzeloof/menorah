@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name menorah)(type KiCad)(uri D:/Documents/GitHub/menorah/hardware/menorah.pretty)(options "")(descr ""))
+)

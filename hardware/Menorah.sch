@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Menorah-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -18,7 +19,7 @@ Wire Wire Line
 Wire Wire Line
 	6700 2250 6700 2850
 Wire Wire Line
-	5550 1950 6700 1950
+	5550 1950 5600 1950
 Wire Wire Line
 	6700 1950 6700 1350
 $Comp
@@ -62,14 +63,6 @@ Wire Wire Line
 Wire Wire Line
 	8800 2350 9150 2350
 Wire Wire Line
-	9150 2850 8800 2850
-Wire Wire Line
-	9500 2850 9150 2850
-Wire Wire Line
-	9150 1350 9500 1350
-Wire Wire Line
-	9150 1350 8800 1350
-Wire Wire Line
 	7400 1350 7750 1350
 Wire Wire Line
 	7750 1850 7400 1850
@@ -87,8 +80,6 @@ Wire Wire Line
 	5550 2150 6800 2150
 Wire Wire Line
 	6800 2050 6800 1850
-Wire Wire Line
-	5550 2050 6800 2050
 Connection ~ 8100 2850
 $Comp
 L Device:R R4
@@ -142,38 +133,10 @@ F 3 "~" H 6950 1350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 8800 1350
-Connection ~ 9150 1350
-Connection ~ 9150 2850
 Wire Wire Line
 	9150 1850 9150 1750
 Wire Wire Line
 	9500 1750 9500 1850
-Wire Wire Line
-	9150 1350 9150 1450
-Wire Wire Line
-	9500 1350 9500 1450
-$Comp
-L Device:LED D10
-U 1 1 5DE594C4
-P 9150 1600
-F 0 "D10" V 9189 1483 50  0000 R CNN
-F 1 "LED" V 9098 1483 50  0000 R CNN
-F 2 "LED_SMD:LED_1206_3216Metric" H 9150 1600 50  0001 C CNN
-F 3 "~" H 9150 1600 50  0001 C CNN
-	1    9150 1600
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED D12
-U 1 1 5DE594BE
-P 9500 1600
-F 0 "D12" V 9447 1678 50  0000 L CNN
-F 1 "LED" V 9538 1678 50  0000 L CNN
-F 2 "LED_SMD:LED_1206_3216Metric" H 9500 1600 50  0001 C CNN
-F 3 "~" H 9500 1600 50  0001 C CNN
-	1    9500 1600
-	0    1    1    0   
-$EndComp
 Connection ~ 8100 1850
 Wire Wire Line
 	8250 1850 8100 1850
@@ -182,11 +145,7 @@ Wire Wire Line
 Wire Wire Line
 	8800 2850 8800 2750
 Wire Wire Line
-	9150 2750 9150 2850
-Wire Wire Line
 	8800 2350 8800 2450
-Wire Wire Line
-	9150 2350 9150 2450
 $Comp
 L Device:LED D9
 U 1 1 5DE5623D
@@ -197,17 +156,6 @@ F 2 "LED_SMD:LED_1206_3216Metric" H 8800 2600 50  0001 C CNN
 F 3 "~" H 8800 2600 50  0001 C CNN
 	1    8800 2600
 	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED D11
-U 1 1 5DE56237
-P 9150 2600
-F 0 "D11" V 9097 2678 50  0000 L CNN
-F 1 "LED" V 9188 2678 50  0000 L CNN
-F 2 "LED_SMD:LED_1206_3216Metric" H 9150 2600 50  0001 C CNN
-F 3 "~" H 9150 2600 50  0001 C CNN
-	1    9150 2600
-	0    1    1    0   
 $EndComp
 Connection ~ 8450 2350
 Connection ~ 8450 1850
@@ -220,10 +168,10 @@ Wire Wire Line
 Wire Wire Line
 	8800 1350 8800 1450
 $Comp
-L Device:LED D6
+L Device:LED D7
 U 1 1 5DE4E7B5
 P 8450 1600
-F 0 "D6" V 8489 1483 50  0000 R CNN
+F 0 "D7" V 8489 1483 50  0000 R CNN
 F 1 "LED" V 8398 1483 50  0000 R CNN
 F 2 "LED_SMD:LED_1206_3216Metric" H 8450 1600 50  0001 C CNN
 F 3 "~" H 8450 1600 50  0001 C CNN
@@ -261,10 +209,10 @@ F 3 "~" H 8100 2600 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:LED D7
+L Device:LED D6
 U 1 1 5DE45951
 P 8450 2600
-F 0 "D7" V 8397 2678 50  0000 L CNN
+F 0 "D6" V 8397 2678 50  0000 L CNN
 F 1 "LED" V 8488 2678 50  0000 L CNN
 F 2 "LED_SMD:LED_1206_3216Metric" H 8450 2600 50  0001 C CNN
 F 3 "~" H 8450 2600 50  0001 C CNN
@@ -345,7 +293,7 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microc
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 1550 4950 1300
+	4950 1550 4950 1450
 $Comp
 L Device:R R5
 U 1 1 5DE938C4
@@ -443,6 +391,133 @@ Wire Wire Line
 	2950 1300 4250 1300
 Wire Wire Line
 	2950 2050 2950 2300
-NoConn ~ 5550 2350
-NoConn ~ 6000 3850
+$Comp
+L pspice:DIODE D11
+U 1 1 5FB893C9
+P 9150 1550
+F 0 "D11" H 9150 1815 50  0000 C CNN
+F 1 "1N4004" H 9150 1724 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123F" H 9150 1550 50  0001 C CNN
+F 3 "~" H 9150 1550 50  0001 C CNN
+	1    9150 1550
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:DIODE D12
+U 1 1 5FB8AD89
+P 9500 1550
+F 0 "D12" H 9500 1815 50  0000 C CNN
+F 1 "1N4004" H 9500 1724 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123F" H 9500 1550 50  0001 C CNN
+F 3 "~" H 9500 1550 50  0001 C CNN
+	1    9500 1550
+	0    1    -1   0   
+$EndComp
+$Comp
+L pspice:DIODE D10
+U 1 1 5FB8C7CB
+P 9150 2600
+F 0 "D10" H 9150 2865 50  0000 C CNN
+F 1 "1N4004" H 9150 2774 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123F" H 9150 2600 50  0001 C CNN
+F 3 "~" H 9150 2600 50  0001 C CNN
+	1    9150 2600
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	8800 1350 9150 1350
+Connection ~ 9150 1350
+Wire Wire Line
+	9150 1350 9500 1350
+Wire Wire Line
+	8800 2850 9150 2850
+Wire Wire Line
+	9150 2800 9150 2850
+Connection ~ 9150 2850
+Wire Wire Line
+	9150 2850 9500 2850
+Wire Wire Line
+	9150 2400 9150 2350
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J1
+U 1 1 5FBC1514
+P 3450 2950
+F 0 "J1" H 3500 3267 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 3500 3176 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD" H 3450 2950 50  0001 C CNN
+F 3 "~" H 3450 2950 50  0001 C CNN
+	1    3450 2950
+	1    0    0    -1  
+$EndComp
+Text GLabel 3150 2850 0    50   Input ~ 0
+MISO
+Wire Wire Line
+	3150 2850 3250 2850
+Text GLabel 3150 2950 0    50   Input ~ 0
+SCK
+Wire Wire Line
+	3150 2950 3250 2950
+Text GLabel 3150 3050 0    50   Input ~ 0
+RST
+Wire Wire Line
+	3150 3050 3250 3050
+Text GLabel 3850 2850 2    50   Input ~ 0
+VCC
+Text GLabel 3850 2950 2    50   Input ~ 0
+MOSI
+Wire Wire Line
+	3850 2950 3750 2950
+Wire Wire Line
+	3850 2850 3750 2850
+Text GLabel 5650 2350 2    50   Input ~ 0
+RST
+Wire Wire Line
+	5650 2350 5550 2350
+$Comp
+L power:GND #PWR03
+U 1 1 5FBD5DFC
+P 3950 3100
+F 0 "#PWR03" H 3950 2850 50  0001 C CNN
+F 1 "GND" H 3955 2927 50  0000 C CNN
+F 2 "" H 3950 3100 50  0001 C CNN
+F 3 "" H 3950 3100 50  0001 C CNN
+	1    3950 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3100 3950 3050
+Wire Wire Line
+	3750 3050 3950 3050
+Text GLabel 6150 2100 2    50   Input ~ 0
+SCK
+Text GLabel 5650 2000 2    50   Input ~ 0
+MISO
+Wire Wire Line
+	5650 2000 5600 2000
+Wire Wire Line
+	5600 2000 5600 1950
+Connection ~ 5600 1950
+Wire Wire Line
+	5600 1950 6700 1950
+Text GLabel 5750 1850 2    50   Input ~ 0
+MOSI
+Wire Wire Line
+	5750 1850 5650 1850
+Connection ~ 5650 1850
+Wire Wire Line
+	5550 2050 6100 2050
+Wire Wire Line
+	6150 2100 6100 2100
+Wire Wire Line
+	6100 2100 6100 2050
+Connection ~ 6100 2050
+Wire Wire Line
+	6100 2050 6800 2050
+Text GLabel 5050 1450 2    50   Input ~ 0
+VCC
+Wire Wire Line
+	5050 1450 4950 1450
+Connection ~ 4950 1450
+Wire Wire Line
+	4950 1450 4950 1300
 $EndSCHEMATC
