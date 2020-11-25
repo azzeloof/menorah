@@ -11,6 +11,7 @@ The board is a somple two-layer PCB. I ordered from PCBWay, because they'll make
 ENIG or hard gold would look good too if you'd rather go for that look.
 
 If you want to make your own, you can take the gerbers from the hardware directory.
+It can be [directly ordered from PCBWay](https://www.pcbway.com/project/shareproject/LED_Menorah.html) also.
 
 Controller is an ATtiny85, and power comes from a AAA battery pack that gets adhered to the back (it also acts as a support). LEDs are reverse-mounted to shine through the board. Resistor values in the schematic are set for blue LEDs, but I'll probably change them to red or yellow. Use whichever colors you'd like, just make sure to set the resistors appropriatley. 
 
