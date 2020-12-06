@@ -1,0 +1,9 @@
+Known Issues
+(Things I screwed up)
+Last updated 12/5/2020
+
+This is what happens when I copy one of my old schematics without thinking about it enough. Props to sam for finding most of the issues.
+
+- ATTiny85 foorprint is wrong (changed BOM, added socket)
+- Power supply is 3V, designed for 6V. Solution is to shrot across D13 (its purpose was to drop the voltage by ~0.7v), and replace R1, R2, R3, R4 with 0-Ohm jumpers. Current is low enough to nor rewuire the current limiting resistors.
+- Diodes D10, D11, and D12 have a lower forward voltage than the LEDs. This creates a sneaky current path, and soe of the LEDs ton;t turn on. Solution is to omit D10, D11 and D12. I probably shouldn't even have included them in the design.
