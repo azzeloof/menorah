@@ -38,10 +38,11 @@ uint8_t baseBrightness = 50;
 uint8_t maxBrightness = 63;
 uint8_t candleLevels[NUM_LEDS];
 uint8_t candleFadeCounter[NUM_LEDS];
-uint8_t candleFadeInit = 0; //32
+uint8_t candleFadeInit = 32;
 uint8_t variability = 3;
 uint8_t day = 0;
-uint8_t flickerDelay = 25;
+uint8_t flickerDelay = 50;
+uint32_t oldMillis = 0;
 
 void setup() {
   // Set up Timer/Counter1 to multiplex the LEDs
@@ -59,30 +60,9 @@ void setup() {
   }
 }
 
-void allOnProgram()
-{
-  allOn();
-  checkButton();
-}
-
-void allOffProgram()
-{
-  clearLeds();
-  checkButton();
-}
-
-int waitAndCheck (uint32_t time){
-  for(int i=0; i<time; i++) {
-    delay(1);
-    if(checkButton()){
-      return 1;
-    }
-  }
-  return 0;
-}
-
 void loop () {
   srand(millis());
+  oldMillis = millis();
   for(int i=0; i<day; i++) {
     if(candleLevels[i] < baseBrightness) {
       candleLevels[i] = LogLevels[candleFadeCounter[i]];
@@ -97,16 +77,20 @@ void loop () {
     }
     setLed(i, candleLevels[i]);
   }
-  if(waitAndCheck(flickerDelay)) {
-    if(day < NUM_LEDS) {
-      day ++;
-    } else {
-      day = 1;
-      clearLeds();
-      for(int i=0; i<NUM_LEDS; i++) {
-        candleLevels[i] = 0;
-        candleFadeCounter[i] = candleFadeInit;
+  while(millis() < oldMillis + flickerDelay) {
+    if(checkButton()){
+      if(day < NUM_LEDS) {
+        day ++;
+      } else {
+        day = 1;
+        clearLeds();
+        for(int i=0; i<NUM_LEDS; i++) {
+          candleLevels[i] = 0;
+          candleFadeCounter[i] = candleFadeInit;
+        }
       }
+      break;
     }
   }
+  oldMillis = millis();
 }
