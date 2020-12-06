@@ -1,7 +1,7 @@
 /*
- * Snowflake Christmas Ornament
+ * PCB Menorah
  * 
- * Sara Adkins & Adam Zeloof - December 2019
+ * Adam Zeloof and Sara Adkins - December 2020
  * 
  * PWM code adapted from David Johnson-Davies - www.technoblogy.com - 19th February 2017
  * http://www.technoblogy.com/show?2H0K
@@ -10,9 +10,6 @@
 #include "Arduino.h"
 #include "modeButton.h"
 #include "leds.h"
-#include "ringFade.h"
-#include "twinkle.h"
-#include "chaos.h"
 
 // Timer/Counter1 overflow interrupt
 ISR(TIM1_COMPA_vect) {
@@ -37,6 +34,14 @@ ISR(TIM1_COMPA_vect) {
   PORTB = (outputs) << 1;
 }
 
+uint8_t baseBrightness = 50;
+uint8_t maxBrightness = 63;
+uint8_t candleLevels[NUM_LEDS];
+uint8_t candleFadeCounter[NUM_LEDS];
+uint8_t variability = 3;
+uint8_t day = 0;
+uint8_t flickerDelay = 25;
+
 void setup() {
   // Set up Timer/Counter1 to multiplex the LEDs
   TCCR1 = 1<<CTC1 | 2<<CS10;          // Divide by 2
@@ -47,6 +52,10 @@ void setup() {
 
   setupButton();
   setupLeds();
+
+  for(int i=0; i<NUM_LEDS; i++) {
+    candleFadeCounter[i] = 32;
+  }
 }
 
 void allOnProgram()
@@ -61,22 +70,35 @@ void allOffProgram()
   checkButton();
 }
 
+int waitAndCheck (uint32_t time){
+  for(int i=0; i<time; i++) {
+    delay(1);
+    if(checkButton()){
+      return 1;
+    }
+  }
+  return 0;
+}
+
 void loop () {
-  switch(mode) {
-    case 0:
-      fadeProgram();
-      break;
-    case 1:
-      twinkleProgram(20, 200);
-      break;
-    case 2:
-      allOnProgram();
-      break;   
-    case 3:
-      chaosProgram(80,20);
-      break; 
-    default:
-      allOffProgram();
-      break;
+  srand(millis());
+  for(int i=0; i<day; i++) {
+    if(candleLevels[i] < baseBrightness) {
+      candleLevels[i] = LogLevels[candleFadeCounter[i]];
+      candleFadeCounter[i]++;
+    } else {
+      candleLevels[i] += ((rand() % variability) - variability/2);
+      if(candleLevels[i] < baseBrightness) {
+        candleLevels[i] = baseBrightness;
+      } else if (candleLevels[i] > maxBrightness){
+        candleLevels[i] = maxBrightness;
+      }
+    }
+    setLed(i, candleLevels[i]);
+  }
+  if(waitAndCheck(flickerDelay)) {
+    if(day < NUM_LEDS) {
+      day ++;
+    }
   }
 }
